@@ -1,0 +1,12 @@
+version: '3'
+services:
+  commercewebfront:
+    image: oven/bun
+    container_name: vite_container
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    command: ["sh", "-c", "bun install && bun run dev"]
