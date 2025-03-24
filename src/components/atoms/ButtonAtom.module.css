@@ -1,0 +1,63 @@
+.primary {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+/* Botón de Crear */
+.create {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+}
+
+.create:hover {
+    background-color: #43a047;
+    transform: scale(1.05);
+}
+
+/* Botón de Editar */
+.edit {
+    background-color: #FFC107; /* Amarillo */
+    color: black;
+}
+
+.edit:hover {
+    background-color: #ffb300;
+    transform: scale(1.05);
+}
+
+/* Botón de Borrar */
+.delete {
+    background-color: #F44336; /* Rojo */
+    color: white;
+}
+
+.delete:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Botón de Ingresar */
+.login {
+    background-color: #269dff; /* Azul */
+    color: white;
+}
+
+.login:hover {
+    background-color: #1976D2;
+    transform: scale(1.05);
+}
+
+/* Botón de Salir */
+.logout {
+    background-color: #9E9E9E; /* Gris */
+    color: white;
+}
+
+.logout:hover {
+    background-color: #757575;
+    transform: scale(1.05);
+}

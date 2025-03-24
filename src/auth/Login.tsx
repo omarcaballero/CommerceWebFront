@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { loginUser } from "../services/AuthService";
-import { useAuth } from "../context/AuthContext";
+import { loginUser } from "../services/auth/AuthService";
+import { useAuth } from "../lib/context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { ButtonAtom } from "../components/atoms/ButtonAtom";
 
 export function Login(){
     const [email, setEmail] = useState('');
@@ -12,7 +13,8 @@ export function Login(){
     async function handleSendLogin(event: React.FormEvent) {
         event.preventDefault();
         try {
-            const response = await loginUser({email, password})
+            console.log('antes de enviar')
+            const response = await loginUser({email, password}) as { token: string };
             login(response.token);
             navigate('/dashboard');
 
@@ -38,7 +40,7 @@ export function Login(){
             onChange={(e) => setPassword(e.target.value)}
             required
             />
-            <button type="submit">Ingresar</button>
+            <ButtonAtom label="Ingresar" onClick={() => handleSendLogin} classType="login" />
         </form>
         </>
     )
