@@ -7,9 +7,12 @@ import { useBrandMutations } from "../../../lib/hooks/mutations/BrandMutations";
 export function Brands() {
     const navigate = useNavigate();
     const { brandsQuery } = useBrandQueries();
-    const {DeleteBrandMutation} = useBrandMutations();
+    const { DeleteBrandMutation } = useBrandMutations();
 
     async function handleDelete(id: number) {
+        const confirmDelete = window.confirm("¿Estás seguro de eliminar esta marca?");
+        if (!confirmDelete) return;
+
         try {
             await DeleteBrandMutation.mutateAsync({ id });
         } catch (error) {
@@ -24,7 +27,7 @@ export function Brands() {
 
     return (
         <>
-           <ul>
+            <ul>
                 {brandsArray.map((brand: BrandBody) => (
                     <li key={brand.id}>
                         {brand.name}
