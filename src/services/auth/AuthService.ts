@@ -1,12 +1,10 @@
 import { fecthClient } from "../../lib/helper/fetchClient";
+import { LoginCredentials } from "../../lib/types/types";
+import { LoginResponse } from "../../lib/types/types";
 
-interface Credentials {
-    email: string;
-    password: string;
-}
 
-export async function loginUser(credentials:Credentials){
-    console.log('en service')
+
+export async function loginUser(credentials:LoginCredentials): Promise<LoginResponse> {
    return fecthClient("auth/login",{
         method:"POST",
         body: JSON.stringify(credentials),

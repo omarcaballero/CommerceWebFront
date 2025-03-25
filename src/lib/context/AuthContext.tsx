@@ -16,7 +16,7 @@ export function AuthProvider({children}:{children:ReactNode}){
 
     function login(token: string) {
         setToken(token);
-        localStorage.setItem("token", token); // Guardamos el token
+        localStorage.setItem("token", token);
       }
     
       function logout() {

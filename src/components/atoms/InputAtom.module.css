@@ -1,0 +1,49 @@
+.input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* 🎯 Estilo para inputs en el Login */
+.login {
+    border-color: #269dff;
+}
+
+.login:focus {
+    border-color: #1976D2;
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+}
+
+/* 🎯 Estilo para inputs en Brands */
+.brand {
+    border-color: #4CAF50;
+}
+
+.brand:focus {
+    border-color: #388E3C;
+    box-shadow: 0 0 5px rgba(56, 142, 60, 0.5);
+}
+
+/* 🎯 Estilo para inputs en Productos */
+.product {
+    border-color: #FFC107;
+}
+
+.product:focus {
+    border-color: #FFB300;
+    box-shadow: 0 0 5px rgba(255, 179, 0, 0.5);
+}
+
+/* 🎯 Estilo para inputs en Categorías */
+.category {
+    border-color: #F44336;
+}
+
+.category:focus {
+    border-color: #D32F2F;
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.5);
+}
