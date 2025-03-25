@@ -2,10 +2,8 @@ import { useState } from "react";
 import { ButtonAtom } from "../atoms/ButtonAtom";
 import { InputAtom } from "../atoms/InputAtom";
 import styles from "./LoginForm.module.css";
+import { LoginFormProps } from "../../lib/types/types";
 
-interface LoginFormProps {
-    onSubmit: (email: string, password: string) => void;
-}
 
 export function FormLogin({ onSubmit }: LoginFormProps) {
     const [email, setEmail] = useState("");

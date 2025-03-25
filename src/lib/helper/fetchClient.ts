@@ -2,7 +2,7 @@
 const API_URL= import.meta.env.VITE_API_URL;
 
 
-export async function fecthClient<T>(
+export async function fetchClient<T>(
     endpoint:string,
     options: RequestInit = {},
     token?: string,
@@ -11,7 +11,8 @@ export async function fecthClient<T>(
     const url = `${API_URL}/${endpoint}`;
     const defaultHeaders = {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token || ""}`,
+        "Accept": "application/json", 
+        ...(token && { Authorization: `Bearer ${token}` }), 
     };
     try{
         const response = await fetch(url, { ...options, headers: { ...defaultHeaders, ...options.headers } });

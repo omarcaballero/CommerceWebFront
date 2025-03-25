@@ -3,7 +3,7 @@ import styles from "./ButtonAtom.module.css";
 interface ButtonProps {
     label: string;
     onClick?: () => void;
-    classType: "create" | "edit" | "delete" | "login" | "logout";
+    classType: "create" | "edit" | "delete" | "login" | "logout" | "dashboard";
     type?: "button" | "submit" | "reset";
 }
 

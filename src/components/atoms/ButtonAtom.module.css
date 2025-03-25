@@ -61,3 +61,14 @@
     background-color: #757575;
     transform: scale(1.05);
 }
+
+.dashboard{
+    background-color: #457bf1; /* Gris */
+    color: rgb(255, 255, 255);
+}
+
+.dashboard:hover{
+    background-color: #133888; /* Gris */
+    color: rgb(255, 255, 255);
+    transform: scale(1.05);
+}
