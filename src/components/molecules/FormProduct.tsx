@@ -1,17 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ButtonAtom } from "../atoms/ButtonAtom";
 import { InputAtom } from "../atoms/InputAtom";
 import styles from "./LoginForm.module.css";
 import { ProductFormProps } from "../../lib/types/types";
 
-export function FormProduct({ onSubmit }: ProductFormProps) {
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("");
-    const [stock, setStock] = useState("");
-    const [brand_id, setBrandId] = useState("");
-    const [category_id, setCategoryId] = useState("");
+export function FormProduct({initialValue={name: "",
+    description: "",
+    price: 0,
+    stock: 0,
+    brand_id: "",
+    category_id: "",
+    image: null }, onSubmit ,id}: ProductFormProps) {
+    const [name, setName] = useState(initialValue.name);
+    const [description, setDescription] = useState(initialValue.description);
+    const [price, setPrice] = useState(initialValue.price.toString());
+    const [stock, setStock] = useState(initialValue.stock.toString());
+    const [brand_id, setBrandId] = useState(initialValue.brand_id);
+    const [category_id, setCategoryId] = useState(initialValue.category_id);
     const [image, setImage] = useState<File | null>(null);
+
+    useEffect(()=>{
+        setName(initialValue.name);
+        setDescription(initialValue.description);
+        setPrice(initialValue.price.toString());
+        setStock(initialValue.stock.toString());
+        setBrandId(initialValue.brand_id);
+        setCategoryId(initialValue.category_id);
+    }
+    ,[initialValue]);
 
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
@@ -90,7 +106,7 @@ export function FormProduct({ onSubmit }: ProductFormProps) {
                 className="product"
             />
 
-            <ButtonAtom label="Ingresar" classType="create" type="submit" />
+            <ButtonAtom label={id ? "Actualizar" : "Registrar"} classType={id ? "edit" : "create"} type="submit" />
         </form>
     );
 }
