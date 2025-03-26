@@ -24,10 +24,19 @@ export interface LoginFormProps {
 }
 
 export interface CategoryFormProps {
-    onSubmit: (category: string) => void;
+    initialValue?: string;
+    onSubmit: (category: string , id?:number) => void;
+    id?:number;
 }
 
 export interface ProductFormProps {
+    initialValue?: {name: string;
+        description: string;
+        price: number;
+        stock: number;
+        brand_id: string;
+        category_id: string;
+        image: File | null;};
     onSubmit: (product: {
         name: string;
         description: string;
@@ -37,6 +46,7 @@ export interface ProductFormProps {
         category_id: string;
         image: File | null;
     }) => void;
+    id?:number;
 }
 
 export interface BrandResponse {
@@ -51,4 +61,43 @@ export interface BrandResponse {
 export interface BrandBody{
     id?: number,
     name?:string
+}
+
+export interface CategoryBody{
+    id?:number,
+    name?:string
+}
+
+export interface CategoryResponse {
+    message: string,
+    category:{
+        name: string,
+        active : boolean,  
+        id: number,
+    }
+}
+
+export interface ProductBody{
+    id?:number,
+    name:string,
+    description:string,
+    price:number,
+    stock:number,
+    brand_id:string,
+    category_id:string,
+    image:File | null
+}
+
+export interface ProductResponse {
+    message: string,
+    product:{
+        name: string,
+        description: string,
+        price: number,
+        stock: number,
+        brand_id: string,
+        category_id: string,
+        image: string,
+        id: number,
+    }
 }

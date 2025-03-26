@@ -26,8 +26,8 @@ export function FormBrand({initialValue="", onSubmit, id}: BrandFormProps) {
             />
 
             <ButtonAtom 
-                label={id ? "Actualizar" : "Registrar"}  // 🔹 Cambiar el texto según si es edición o creación
-                classType="create" 
+                label={id ? "Actualizar" : "Registrar"}
+                classType={id ? "edit" : "create"}
                 type="submit" 
             />
         </form>

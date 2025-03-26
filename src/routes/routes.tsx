@@ -7,6 +7,8 @@ import { Login } from "../pages/admin/auth/Login";
 import { Index } from "../pages/client/Index";
 import { CreateBrand } from "../pages/admin/dashboard/Brands/CreateBrand";
 import { EditBrand } from "../pages/admin/dashboard/Brands/EditBrand";
+import { CreateCategory } from "../pages/admin/dashboard/Categories/CreateCategory";
+import { EditCategory } from "../pages/admin/dashboard/Categories/EditCategory";
 
 const AppRoutes = () => {
   return (
@@ -19,6 +21,8 @@ const AppRoutes = () => {
       <Route path="/dashboard/brands/create" element={<CreateBrand />} />
       <Route path="/dashboard/brands/edit/:id" element={<EditBrand />} /> 
       <Route path="/dashboard/categories" element={<Categories />} />
+      <Route path="/dashboard/categories/create" element={<CreateCategory/>} />
+      <Route path="/dashboard/categories/edit/:id" element={<EditCategory />} /> 
       <Route path="/dashboard/products" element={<Products />} />
 
       <Route path="/login" element={<Login />} />
