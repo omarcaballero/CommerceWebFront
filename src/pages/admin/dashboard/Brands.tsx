@@ -1,7 +1,6 @@
 import { ButtonAtom } from "../../../components/atoms/ButtonAtom";
 import { useNavigate } from "react-router-dom";
 import { useBrandQueries } from "../../../lib/hooks/queries/BrandQueries";
-import { BrandBody } from "../../../lib/types/types";
 import { useBrandMutations } from "../../../lib/hooks/mutations/BrandMutations";
 
 export function Brands() {
@@ -28,7 +27,7 @@ export function Brands() {
     return (
         <>
             <ul>
-                {brandsArray.map((brand: BrandBody) => (
+                {brandsArray.map((brand) => (
                     <li key={brand.id}>
                         {brand.name}
                         <ButtonAtom 
@@ -43,6 +42,14 @@ export function Brands() {
                             type="button" 
                             onClick={() => brand.id !== undefined && handleDelete(brand.id)}
                         />
+                        {!brand.active && (
+                            <ButtonAtom 
+                            label="Activar" 
+                            classType="active" 
+                            type="button" 
+                            onClick={() => console.log(brand.id)}
+                        />
+                        )}
                     </li>
                 ))}
             </ul>

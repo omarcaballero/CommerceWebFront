@@ -43,6 +43,14 @@ export function Categories(){
                             type="button" 
                             onClick={() => category.id !== undefined && handleDelete(category.id)}
                         />
+                        {!category.active && (
+                            <ButtonAtom 
+                            label="Activar" 
+                            classType="active" 
+                            type="button" 
+                            onClick={() => console.log(category.id)}
+                        />
+                        )}
                     </li>
                 ))}
 
