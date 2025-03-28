@@ -1,32 +1,33 @@
 import { fetchClient } from "../../lib/helper/fetchClient";
-import { ProductFormProps } from "../../lib/types/types";
+import { ProductBody, ProductResponse } from "../../lib/types/types";
 
-export async function CreateProduct(product:ProductFormProps, token: string) {
+export async function CreateProduct(formData :any, token: string): Promise <ProductResponse> {
+    console.log('Formdata en edit product:', Object.fromEntries(formData));
     return fetchClient("products",{
         method:"POST",
-        body: JSON.stringify(product),
+        body: formData,
     },token
    )
 }
 
-export async function EditProduct(product:ProductFormProps, token: string) {
-    return fetchClient("products",{
-        method:"PUT",
-        body: JSON.stringify(product),
+export async function EditProduct(formData :any, token: string):Promise <ProductResponse> {
+    console.log('Formdata en edit product:', Object.fromEntries(formData));
+    return fetchClient(`products/${Object.fromEntries(formData).id}`,{
+        method:"POST",
+        body: formData,
     },token
    )
 }
 
-export async function GetProducts(product:ProductFormProps, token: string) {
+export async function GetProducts( token: string):Promise <ProductResponse>{
     return fetchClient("products",{
-        method:"GET",
-        body: JSON.stringify(product),
+        method:"GET"
     },token
    )
 }
 
-export async function DeleteProduct(product:ProductFormProps, token: string){
-    return fetchClient("products",{
+export async function DeleteProduct(product:ProductBody, token: string) : Promise <ProductResponse>{
+    return fetchClient(`products/${product.id}`,{
         method:"DELETE",
         body: JSON.stringify(product)
     },token)
