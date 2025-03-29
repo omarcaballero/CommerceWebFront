@@ -11,25 +11,27 @@ import { CreateCategory } from "../pages/admin/dashboard/Categories/CreateCatego
 import { EditCategory } from "../pages/admin/dashboard/Categories/EditCategory";
 import { EditProduct } from "../pages/admin/dashboard/Products/EditProduct";
 import { CreateProduct } from "../pages/admin/dashboard/Products/CreateProduct";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Index />} />
+      <Route element={<ProtectedRoute />}>
+          {/*RUTAS PARA DASHBOARD*/}
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/brands" element={<Brands />} />
+          <Route path="/dashboard/brands/create" element={<CreateBrand />} />
+          <Route path="/dashboard/brands/edit/:id" element={<EditBrand />} />
 
-      {/*RUTAS PARA DASHBOARD*/}
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/dashboard/brands" element={<Brands />} />
-      <Route path="/dashboard/brands/create" element={<CreateBrand />} />
-      <Route path="/dashboard/brands/edit/:id" element={<EditBrand />} />
+          <Route path="/dashboard/categories" element={<Categories />} />
+          <Route path="/dashboard/categories/create" element={<CreateCategory/>} />
+          <Route path="/dashboard/categories/edit/:id" element={<EditCategory />} /> 
 
-      <Route path="/dashboard/categories" element={<Categories />} />
-      <Route path="/dashboard/categories/create" element={<CreateCategory/>} />
-      <Route path="/dashboard/categories/edit/:id" element={<EditCategory />} /> 
-
-      <Route path="/dashboard/products" element={<Products />} />
-      <Route path="/dashboard/products/create" element={<CreateProduct/>} />
-      <Route path="/dashboard/products/edit/:id" element={<EditProduct/>} />
+          <Route path="/dashboard/products" element={<Products />} />
+          <Route path="/dashboard/products/create" element={<CreateProduct/>} />
+          <Route path="/dashboard/products/edit/:id" element={<EditProduct/>} />
+      </Route>
 
       <Route path="/login" element={<Login />} />
       

@@ -1,0 +1,121 @@
+/* ProductStyles.css */
+
+.product-card {
+    padding: 16px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: #ded9d9;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  }
+
+  .product-card div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #2f2f2f;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .product-image img{
+    margin: auto;
+    }
+  
+  .product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+  
+  .product-price {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: #ededed;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+    color: #232020;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  /* 📌 Estilo para la imagen del producto */
+.product-image {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .product-image img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* 📌 Estilo para el nombre del producto */
+  .product-name {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  /* 📌 Estilo para el precio del producto */
+  .product-price {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .product-price h3{
+    margin: 2px;
+  }
+  
+  .price-tax {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  
