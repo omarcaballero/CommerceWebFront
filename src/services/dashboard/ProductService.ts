@@ -28,7 +28,12 @@ export async function GetProducts( token: string):Promise <ProductResponse>{
 
 export async function DeleteProduct(product:ProductBody, token: string) : Promise <ProductResponse>{
     return fetchClient(`products/${product.id}`,{
-        method:"DELETE",
-        body: JSON.stringify(product)
+        method:"DELETE"
+    },token)
+}
+
+export async function ActiveProduct(product:ProductBody, token: string) : Promise <ProductResponse>{
+    return fetchClient(`products/active/${product.id}`,{
+        method:"PUT"
     },token)
 }

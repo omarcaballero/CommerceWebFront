@@ -27,3 +27,9 @@ export async function DeleteCategory(brand:CategoryBody,token:string):Promise<Ca
         method:"DELETE"
     },token);
 }
+
+export async function ActiveCategory(brand:CategoryBody,token:string):Promise<CategoryResponse>{
+    return fetchClient(`categories/active/${brand.id}`,{
+        method:"PUT"
+    },token);
+}

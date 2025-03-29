@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query"
 import { ProductBody, ProductResponse } from "../../types/types"
-import { CreateProduct, DeleteProduct, EditProduct } from "../../../services/dashboard/ProductService"
+import { ActiveProduct, CreateProduct, DeleteProduct, EditProduct } from "../../../services/dashboard/ProductService"
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
@@ -43,9 +43,21 @@ export function useProductMutations(){
             console.error('Error al eliminar producto',error);
         }
     })
+
+    const ActiveProductMutation = useMutation<ProductResponse,Error,ProductBody>({
+        mutationFn:(product : ProductBody)=>{return ActiveProduct(product, token?? "null")},
+        onSuccess(data){
+            console.log('Producto eliminado',data);
+            queryClient.invalidateQueries({ queryKey: ["products"] });
+        },
+        onError(error){
+            console.error('Error al eliminar producto',error);
+        }
+    })
     return {
         createProductMutation,
         editProductMutation,
-        deleteProductMutation
+        deleteProductMutation,
+        ActiveProductMutation
     }
 }

@@ -1,0 +1,69 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.table th {
+    background: #f4f4f4;
+    font-weight: bold;
+}
+
+.table tr:hover {
+    background: #f9f9f9;
+}
+
+.actionsColumn {
+    display: flex;
+    gap: 8px;
+}
+
+/* Estado activo e inactivo */
+.active {
+    background: #e8f5e9;
+}
+
+.inactive {
+    background: #ffebee;
+}
+
+/* Estilos de mensajes */
+.loadingText {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+
+.errorText {
+    text-align: center;
+    font-size: 18px;
+    color: red;
+}

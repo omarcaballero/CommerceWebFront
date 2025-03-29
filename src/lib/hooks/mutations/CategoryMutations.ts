@@ -2,7 +2,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { CategoryBody , CategoryResponse } from "../../types/types";
-import { CreateCategory, DeleteCategory, EditCategory } from "../../../services/dashboard/CategoryService";
+import { ActiveCategory, CreateCategory, DeleteCategory, EditCategory } from "../../../services/dashboard/CategoryService";
 
 export function useCategoryMutations(){
     const { token } = useAuth();
@@ -45,9 +45,22 @@ export function useCategoryMutations(){
         }
     })
 
+    const ActiveCategoryMutation = useMutation<CategoryResponse,Error, CategoryBody>({
+        mutationFn: (Category: CategoryBody) => {
+            return ActiveCategory(Category, token?? "null")
+        },
+        onSuccess(){
+            queryClient.invalidateQueries({ queryKey: ["categories"] });
+        },
+        onError(error){
+            console.error('Error al borrar', error);
+        }
+    })
+
     return {
         CreateCategoryMutation,
         EditCategoryMutation,
-        DeleteCategoryMutation
+        DeleteCategoryMutation,
+        ActiveCategoryMutation
     }
 }

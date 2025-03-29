@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "../../context/AuthContext";
-import { CreateBrand, EditBrand, DeleteBrand} from "../../../services/dashboard/BrandService";
+import { CreateBrand, EditBrand, DeleteBrand, ActiveBrand} from "../../../services/dashboard/BrandService";
 import { BrandBody, BrandResponse } from "../../types/types";
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
@@ -42,9 +42,20 @@ export function useBrandMutations(){
         }
     })
 
+    const ActiveBrandMutation = useMutation<BrandResponse,Error,BrandBody>({
+        mutationFn: (brand:BrandBody)=>{return ActiveBrand(brand,token??"null")},
+        onSuccess(){
+            queryClient.invalidateQueries({ queryKey: ["brands"] });
+        },
+        onError(error){
+            console.error('Error al borrar', error);
+        }
+    })
+
     return{
         CreateBrandMutation,
         EditBrandMutation,
-        DeleteBrandMutation
+        DeleteBrandMutation,
+        ActiveBrandMutation
     }
 }

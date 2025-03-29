@@ -6,6 +6,7 @@ import { ProductFormProps } from "../../lib/types/types";
 import { SelectAtom } from "../atoms/SelectAtom";
 import { useCategoryQueries } from "../../lib/hooks/queries/CategoryQueries";
 import { useBrandQueries } from "../../lib/hooks/queries/BrandQueries";
+import { useNavigate } from "react-router-dom";
 
 export function FormProduct({
     initialValue = {
@@ -29,6 +30,7 @@ export function FormProduct({
     const [image, setImage] = useState<File | null>(null);
     const { categoryQuery } = useCategoryQueries();
     const { brandsQuery } = useBrandQueries();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!initialValue) return; 
@@ -130,6 +132,12 @@ export function FormProduct({
                 label={id ? "Actualizar" : "Registrar"} 
                 classType={id ? "edit" : "create"} 
                 type="submit" 
+            />
+            <ButtonAtom 
+                label="Cancelar"
+                classType="delete" 
+                type="button" 
+                onClick={() => navigate('/dashboard/products')} 
             />
         </form>
     );

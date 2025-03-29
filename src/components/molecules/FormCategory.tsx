@@ -3,9 +3,11 @@ import { ButtonAtom } from "../atoms/ButtonAtom";
 import { InputAtom } from "../atoms/InputAtom";
 import styles from "./LoginForm.module.css";
 import { CategoryFormProps } from "../../lib/types/types";
+import { useNavigate } from "react-router-dom";
 
 export function FormCategory({initialValue="", onSubmit ,id}: CategoryFormProps) {
     const [category, setCategory] = useState(initialValue);
+    const navigate = useNavigate();
 
     useEffect(()=>{setCategory(initialValue)},[initialValue]);
 
@@ -26,6 +28,12 @@ export function FormCategory({initialValue="", onSubmit ,id}: CategoryFormProps)
             />
 
             <ButtonAtom label={id ? "Actualizar" : "Registrar"} classType={id ? "edit" : "create"} type="submit" />
+            <ButtonAtom 
+                label="Cancelar"
+                classType="delete" 
+                type="button" 
+                onClick={() => navigate('/dashboard/categories')} 
+            />
         </form>
     );
 }

@@ -3,9 +3,11 @@ import { ButtonAtom } from "../atoms/ButtonAtom";
 import { InputAtom } from "../atoms/InputAtom";
 import styles from "./LoginForm.module.css";
 import { BrandFormProps } from "../../lib/types/types";
+import { useNavigate } from "react-router-dom";
 
 export function FormBrand({initialValue="", onSubmit, id}: BrandFormProps) {
     const [brand, setBrand] = useState(initialValue);
+    const navigate = useNavigate();
 
     useEffect(()=>{setBrand(initialValue)},[initialValue])
 
@@ -29,6 +31,13 @@ export function FormBrand({initialValue="", onSubmit, id}: BrandFormProps) {
                 label={id ? "Actualizar" : "Registrar"}
                 classType={id ? "edit" : "create"}
                 type="submit" 
+            />
+
+            <ButtonAtom 
+                label="Cancelar"
+                classType="delete" 
+                type="button" 
+                onClick={() => navigate('/dashboard/brands')} 
             />
         </form>
     );

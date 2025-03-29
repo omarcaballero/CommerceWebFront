@@ -102,3 +102,7 @@ export interface ProductResponse {
         image?:File | null
     };
 }
+
+export interface HeaderDashboardProps {
+    onLogout: () => void;
+}

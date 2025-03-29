@@ -28,3 +28,9 @@ export async function DeleteBrand(brand:BrandBody,token:string):Promise<BrandRes
         method:"DELETE"
     },token);
 }
+
+export async function ActiveBrand(brand:BrandBody,token:string):Promise<BrandResponse>{
+    return fetchClient(`brands/active/${brand.id}`,{
+        method:"PUT"
+    },token);
+}
