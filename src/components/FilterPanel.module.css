@@ -1,0 +1,50 @@
+.filterPanel {
+    background-color: #e0dede;
+    color: black;
+    padding: 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.toggleButton {
+    display: none;
+}
+
+.filterContentdiv {
+    display: flex;
+    flex-direction: column;
+}
+
+/* En pantallas menores a 768px */
+@media (max-width: 768px) {
+    .filterPanel {
+        position: relative;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .toggleButton {
+        display: block; 
+        background-color: #797979;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .toggleButton:hover {
+        background-color: #4e4e4e;
+    }
+
+    .filterContent {
+        display: none;
+    }
+
+    .filterPanel.open .filterContent {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}

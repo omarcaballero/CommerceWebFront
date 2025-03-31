@@ -1,0 +1,41 @@
+/* Footer.module.css */
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact, .socials, .dev {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+a {
+    color: #4da8da;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive: Se apila en pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
