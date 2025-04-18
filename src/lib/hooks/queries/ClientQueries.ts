@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { GetProductsClient } from "../../../services/client/ProductCLient";
 import { ProductResponse } from "../../types/types"; 
 
-export function useClientQueries(page: number = 1) {
+export function useClientQueries() {
     const productClientQuery = useQuery<ProductResponse>({
-        queryKey: ["products", page],
-        queryFn: () => GetProductsClient(page),
+        queryKey: ["products"],
+        queryFn: () => GetProductsClient(),
         placeholderData: (previousData) => previousData,
     });
 
