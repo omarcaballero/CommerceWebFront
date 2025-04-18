@@ -6,7 +6,7 @@ export function Header() {
 
     return (
         <header className={styles.header}>
-            <div className={styles.logo}>Good Melody</div>
+            <div className={styles.logo}>Tienda General</div>
 
             <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`}>
                 <a href="#">Inicio</a>

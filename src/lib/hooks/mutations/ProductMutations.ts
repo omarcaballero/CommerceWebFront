@@ -22,7 +22,7 @@ export function useProductMutations(){
         }
     })
 
-    const editProductMutation = useMutation<ProductResponse,Error,ProductBody>({
+    const editProductMutation = useMutation<ProductResponse,Error,FormData>({
         mutationFn:(formData)=>{
             return EditProduct(formData, token?? "null")},
         onSuccess(data){
