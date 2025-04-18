@@ -12,12 +12,12 @@ import { FilterPanel } from "../../components/FilterPanel";
 import Carousel from "../../components/Hero";
 
 export function Index() {
-    const [page, setPage] = useState(1); // Estado para manejar la página
-    const { productClientQuery } = useClientQueries(page);
+    const { productClientQuery } = useClientQueries();
     
-    // Si la API devuelve metadatos de paginación
-    const paginationMeta = productClientQuery.data?.meta || {};
-    const productsArray = productClientQuery.data?.data || [];
+    // Simplify to just use the data directly without pagination metadata
+    const productsArray: ProductBody[] = Array.isArray(productClientQuery.data)
+        ? (productClientQuery.data as ProductBody[])
+        : [];
     
     const [selectedProduct, setSelectedProduct] = useState<ProductBody | null>(null);
     const [search, setSearch] = useState("");
@@ -66,21 +66,6 @@ export function Index() {
                         )}
                     </div>
                 </div>
-            </div>
-
-            {/* Controles de paginación */}
-            <div className={styles.pagination}>
-                {paginationMeta.current_page > 1 && (
-                    <button onClick={() => setPage((prev) => Math.max(prev - 1, 1))}>
-                        Anterior
-                    </button>
-                )}
-                <span>Página {paginationMeta.current_page} de {paginationMeta.last_page}</span>
-                {paginationMeta.current_page < paginationMeta.last_page && (
-                    <button onClick={() => setPage((prev) => prev + 1)}>
-                        Siguiente
-                    </button>
-                )}
             </div>
 
             {selectedProduct && (
