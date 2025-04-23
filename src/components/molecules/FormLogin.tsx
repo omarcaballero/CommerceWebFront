@@ -6,21 +6,21 @@ import { LoginFormProps } from "../../lib/types/types";
 
 
 export function FormLogin({ onSubmit }: LoginFormProps) {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
-        onSubmit(email, password);
+        onSubmit(username, password);
     }
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
             <InputAtom
-                type="email"
-                placeholder="Correo"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="username"
+                placeholder="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
                 className="login"
             />

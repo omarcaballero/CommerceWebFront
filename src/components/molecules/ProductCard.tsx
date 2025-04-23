@@ -7,7 +7,7 @@ import { ProductBody } from "../../lib/types/types";
 export function ProductCard({ product, onClick }: { product: ProductBody; onClick: () => void }) {
   return (
     <div className="product-card" onClick={onClick}>
-      <ProductImage image={typeof product.image === "string" ? product.image : ""}/>
+      <ProductImage image={typeof product.imageUrl === "string" ? product.imageUrl : ""}/>
       <div>
         <ProductName name={product.name || ""} />
         <ProductPrice price={Number(product.price) || 0} />

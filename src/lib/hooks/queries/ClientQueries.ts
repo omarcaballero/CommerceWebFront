@@ -5,8 +5,7 @@ import { ProductResponse } from "../../types/types";
 export function useClientQueries() {
     const productClientQuery = useQuery<ProductResponse>({
         queryKey: ["products"],
-        queryFn: () => GetProductsClient(),
-        placeholderData: (previousData) => previousData,
+        queryFn: () => GetProductsClient()
     });
 
     return { productClientQuery };

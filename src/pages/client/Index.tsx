@@ -14,7 +14,6 @@ import Carousel from "../../components/Hero";
 export function Index() {
     const { productClientQuery } = useClientQueries();
     
-    // Simplify to just use the data directly without pagination metadata
     const productsArray: ProductBody[] = Array.isArray(productClientQuery.data)
         ? (productClientQuery.data as ProductBody[])
         : [];
@@ -29,8 +28,10 @@ export function Index() {
         [search, selectedCategories, selectedBrands, productsArray]
     );
 
-    const categories = Array.from(new Set(productsArray.map((p:any) => p.category?.name).filter(Boolean))) as string[];
-    const brands = Array.from(new Set(productsArray.map((p:any) => p.brand?.name).filter(Boolean))) as string[];
+    console.log("Filtered Products:", filteredProducts);
+
+    const categories = Array.from(new Set(productsArray.map((p:any) => p.categoryName).filter(Boolean))) as string[];
+    const brands = Array.from(new Set(productsArray.map((p:any) => p.brandName).filter(Boolean))) as string[];
 
     return (
         <>

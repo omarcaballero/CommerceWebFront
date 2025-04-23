@@ -5,6 +5,7 @@ import { LoginResponse } from "../../lib/types/types";
 
 
 export async function loginUser(credentials:LoginCredentials): Promise<LoginResponse> {
+    console.log('Credenciales en login:', credentials);
    return fetchClient("auth/login",{
         method:"POST",
         body: JSON.stringify(credentials),

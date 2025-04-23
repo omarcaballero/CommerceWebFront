@@ -10,10 +10,10 @@ export function filterProducts(products: ProductBody[], filters: FilterOptions):
     return products.filter((product) => {
         const matchesSearch = product.name?.toLowerCase().includes(filters.search.toLowerCase());
         const matchesCategory = filters.categories.length > 0 
-            ? product.category?.name && filters.categories.includes(product.category.name) 
+            ? product.categoryName && filters.categories.includes(product.categoryName) 
             : true;
         const matchesBrand = filters.brands.length > 0
-            ? product.brand?.name && filters.brands.includes(product.brand.name)
+            ? product.brandName && filters.brands.includes(product.brandName)
             : true;
 
         return matchesSearch && matchesCategory && matchesBrand;

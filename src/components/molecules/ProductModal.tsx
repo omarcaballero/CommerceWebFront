@@ -14,7 +14,7 @@ export function ProductModal ({ product, onClose }: { product: ProductBody; onCl
     <div className="modal-content">
       <button onClick={onClose} className="modal-close">❌</button>
   
-      <ProductImage image={typeof product.image === "string" ? product.image : ""} />
+      <ProductImage image={typeof product.imageUrl === "string" ? product.imageUrl : ""} />
       <div>
       <ProductName name={product.name ?? "Nombre no disponible"} />
       <ProductPrice price={Number(product.price) || 0} />
@@ -26,11 +26,11 @@ export function ProductModal ({ product, onClose }: { product: ProductBody; onCl
       </p>
   
       <p className="product-brand">
-        <strong>Marca:</strong> {product.brand?.name ?? "Sin marca"}
+        <strong>Marca:</strong> {product.brandName ?? "Sin marca"}
       </p>
   
       <p className="product-category">
-        <strong>Categoría:</strong> {product.category?.name ?? "Sin categoría"}
+        <strong>Categoría:</strong> {product.categoryName ?? "Sin categoría"}
       </p>
 
     </div>

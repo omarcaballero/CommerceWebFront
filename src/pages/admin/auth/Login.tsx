@@ -4,9 +4,10 @@ import { useAuthMutations } from "../../../lib/hooks/mutations/AuthMutations";
 export function Login(){
     const {loginMutation} = useAuthMutations();
 
-    async function handleLogin(email: string, password: string) {
+    async function handleLogin(username: string, password: string) {
         try {
-            await loginMutation.mutateAsync({email, password});
+            console.log(username, password);
+            await loginMutation.mutateAsync({username, password});
         } catch (error) {
             console.error("Error al iniciar sesión:", error);
         }

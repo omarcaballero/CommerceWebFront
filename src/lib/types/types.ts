@@ -1,6 +1,6 @@
 // Autenticación
 export interface LoginCredentials {
-    email: string;
+    username: string;
     password: string;
 }
 
@@ -89,9 +89,9 @@ export interface ProductBody {
     description?: string;
     price?: string;
     stock?: number;
-    brand?: BrandBody;
-    category?: CategoryBody;
-    image?: File | null;
+    brandName?: string;
+    categoryName?: string;
+    imageUrl?: string | null;
     active?: boolean;
 }
 
